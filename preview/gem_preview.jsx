@@ -28,16 +28,16 @@ export class GemPreview extends React.Component {
                     "width": "55px",
                     "height": "26px",
                     "color": RenderUtilities.getColor("gemText"),
-                    "lineHeight": "26pt",
+                    "lineHeight": "26px",
                     "backgroundColor": RenderUtilities.getColor(gem.gemName),
                     "borderRadius": "3px",
                     "bottom": "50px",
-                    "text-shadow": "0px 0px 11px rgba(0, 0, 0, 1)",
+                    "textShadow": "0px 0px 11px rgba(0, 0, 0, 1)",
                     "left": ((198/2) - (55 / 2)) + "px",
                     "textAlign": "center",
                     "letterSpacing": "-0.01em",
                     "fontFamily": "Calisto MT W01 Bold",
-                    "fontSize": "23.71pt",
+                    "fontSize": "16px",
                     "zIndex": "5"
 
                 }}>{gem.text}</span> : "")}

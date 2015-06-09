@@ -12,6 +12,7 @@ export class TitlePreview extends React.Component {
                     "left": "102px",
                     "top": "214px",
                     "fontSize": "33px",
+
                     "letterSpacing": "-0.025em",
                     "fontFamily": "Calisto MT W01 Bold",
                     "color": titleColor

@@ -5,8 +5,76 @@ export class DescriptionRenderer {
         this.props = props;
     }
 
+    getTextInformation (text, fontSize, fontName, width, height, letterSpacing, lineHeight) {
+        var div = document.createElement ("div");
+        div.style.fontSize = fontSize + "px";
+        div.style.fontFamily = fontName;
+        div.style.lineHeight = lineHeight;
+        div.style.position = "absolute";
+        div.style.textAlign = "justify";
+        div.style.left = "0px";
+        div.style.top = "0px";
+        div.style.zIndex = "10";
+        div.style.width = width +"px";
+        div.style.height = height + "px";
+        //div.style.visibility = "none";
+        div.style.letterSpacing = letterSpacing;
+        var letters = text.split("");
+        var spans = letters.map(function (letter) {
+            var span = document.createElement("span");
+            span.textContent = letter;
+            div.appendChild(span);
+            return span;
+        });
+        // We have to render this to the window to get information.
+        document.body.appendChild(div);
+        var divPositioning = div.getBoundingClientRect();
+        var spacing = [];
+        var beginSpacing = {};
+        for (var i = 0; i < spans.length; i++) {
+            var spanPos = spans[i].getBoundingClientRect();
+            if (i == 0) {
+                beginSpacing = { "top": spanPos.top - divPositioning.top, "left": spanPos.left - divPositioning.left};
+            }
+            spacing.push({
+                "top": spanPos.top - divPositioning.top - beginSpacing.top,
+                "left": spanPos.left - divPositioning.left - beginSpacing.left
+            });
+        }
+
+        // Done processing. Now remove it.
+        document.body.removeChild(div);
+        return {"text": letters, "spacing": spacing};
+    }
 
     render (context, canvas) {
+        var font =  "Calisto MT W01 Bold";
+        var fontSize = 26;
+        var offsetX = 100;
+        var offsetY = 293;
+        var letterSpacing = "-0.025em";
+        var lineHeight = "32px";
+        var text = this.props.cardDescription;
+
+        var renderInformation = this.getTextInformation(text, fontSize, font, 625, 600, letterSpacing, lineHeight);
+
+        context.fillStyle = RenderUtilities.getColor("description");
+        context.font = fontSize + "px "+font;
+        context.lineWidth = 4;
+        context.strokeStyle = "#dcc6a6";
+        context.textBaseline = "top";
+
+        var tSpacing = renderInformation.spacing;
+        var tText = renderInformation.text;
+        console.log(tSpacing);
+        for (var i = 0; i < tSpacing.length; i++) {
+            var offset = tSpacing[i];
+            context.strokeText(tText[i], offset.left+offsetX, offset.top + offsetY);
+        }
+        for (var i = 0; i < tSpacing.length; i++) {
+            var offset = tSpacing[i];
+            context.fillText(tText[i], offset.left+offsetX, offset.top + offsetY);
+        }
 
         //var svg = `<svg width="625px" height="500">
         //    <rect x="0" y="0" width="625px" height="500" />

@@ -6,7 +6,9 @@ export class CostRenderer {
     }
 
     render (context,canvas) {
-        context.drawImage(RenderUtilities.getDownloadedElement("cost"+this.props.cardCost),canvas.width-68,canvas.height-66);
+        if (this.props.cardCost != 0) {
+            context.drawImage(RenderUtilities.getDownloadedElement("cost" + this.props.cardCost), canvas.width - 68, canvas.height - 66);
+        }
         //return <img style={{
         //     "position": "absolute",
         //     "right": "68px",

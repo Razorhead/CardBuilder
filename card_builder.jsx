@@ -174,6 +174,9 @@ export class CardBuilder extends React.Component {
         return <div>
             <div className="content-box ">
             <div className="content-box-heading">Card Builder</div>
+                <div className="alert alert-info">
+                Updated to the proper card colours. Still waiting on a few more things to be able to actually save the image. Know how to code and want to help out? Visit our <a href="https://github.com/Unforgotten-Realms-Live-Wiki/CardBuilder">GitHub Page</a>
+                </div>
                 <div className="pure-g">
                 <form className="pure-form pure-form-aligned pure-u-11-24">
                 <fieldset>
@@ -204,11 +207,11 @@ export class CardBuilder extends React.Component {
                </form>
                 <div className="pure-u-12-24">
                     <CardPreview ref="cardImage" cardStamina={this.state.cardStamina} cardGems={this.state.cardGems} cardTitle={this.state.cardTitle} cardCost={this.state.cardCost} cardType={this.state.cardType} cardName={this.state.cardName} cardDescription={this.state.cardDescription}></CardPreview>
+                    {(window.location.hash == "#test" ?
+                    <button onClick={this.save.bind(this)}>Test Save Output</button>
+                    : "" )}
 
                     <br />
-                    <button  onClick={this.save.bind(this)}>
-                        Save as Image - Currently not working. Sorry :(, Print screen it and cut it out until tomorrow!
-                    </button>
                 </div>
 
                 </div>
