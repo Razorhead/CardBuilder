@@ -7,7 +7,7 @@ export class GemPreview extends React.Component {
 
     render () {
 
-        var currY = 499;
+        var currY = 496;
         var currX = 46;
         var gemData = this.props.cardGems.filter((gem) => { return gem.selected; }).map((gem, i) => {
             return <div style={{

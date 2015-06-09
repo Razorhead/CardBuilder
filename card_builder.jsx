@@ -185,14 +185,14 @@ export class CardBuilder extends React.Component {
                     <TypeForm onChange={this.onTypeChange.bind(this)} value={this.state.cardType}></TypeForm>
                     <DescriptionForm onChange={this.onDescriptionChange.bind(this)} value={this.state.cardDescription}></DescriptionForm>
 
-                    <NameForm value={this.state.cardName} onChange={this.onNameChange.bind(this)}></NameForm>
+                        <TitleForm onChange={this.onTitleChange.bind(this)} value={this.state.cardTitle}></TitleForm>
 
                     {this.outputIfCardTypeIsIn(
                         <CostForm value={this.state.cardCost} onChange={this.onCostChange.bind(this)}></CostForm>,
                         this.costCards
                     )}
                     {this.outputIfCardTypeIsIn(
-                        <TitleForm onChange={this.onTitleChange.bind(this)} value={this.state.cardTitle}></TitleForm>,
+                    <NameForm value={this.state.cardName} onChange={this.onNameChange.bind(this)}></NameForm>,
                         this.titleCards
                     )}
                     {this.outputIfCardTypeIsIn(

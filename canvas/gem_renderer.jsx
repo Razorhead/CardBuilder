@@ -36,12 +36,12 @@ export class GemRenderer {
     }
 
     render (context, canvas) {
-        var currY = 499;
+        var currY = 496;
         var currX = 46;
         this.props.cardGems.filter((gem) => { return gem.selected; }).forEach((gem, i) => {
-            this.renderGemImage(context, gem,currX + (i * 135), 499);
+            this.renderGemImage(context, gem,currX + (i * 135), currY);
             if (gem.text) {
-                this.renderGemText(context, gem, gem.text, currX + (i * 135) + ((198/2) - (55 / 2)),499+196-75);
+                this.renderGemText(context, gem, gem.text, currX + (i * 135) + ((198/2) - (55 / 2)),currY+196-75);
             }
         });
     }
