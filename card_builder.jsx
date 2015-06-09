@@ -79,28 +79,28 @@ export class CardBuilder extends React.Component {
         this.setState({ "cardTitle": ev.target.value });
     }
 
-    onGemChange (gemName, gemText, selected, ev) {
-        var gemIndex = this.indexOfGem(gemName);
-        console.log("Gem Clicked", gemName, this.state.cardGems, gemIndex);
-        if (gemIndex == -1) {
-            let tempGems = this.state.cardGems.slice();
-            if ((tempGems.length + 1) > this._gemAmount[this.state.cardType]) {
-                console.log("Removing a gem");
-                tempGems.shift();
-            }
-            var state = {"name": gemName};
-            if (this.state.gemText.hasOwnProperty(gemName)) {
-                state.text = this.state.gemText[gemName];
-            }
-            tempGems.push(state);
-            this.setState({ "cardGems": tempGems });
-        }
-        else {
-            let tempGems = this.state.cardGems.slice();
-            tempGems.splice(gemIndex, 1);
-            this.setState({ "cardGems": tempGems });
-        }
-    }
+    // onGemChange (gemName, gemText, selected, ev) {
+    //     var gemIndex = this.indexOfGem(gemName);
+    //     console.log("Gem Clicked", gemName, this.state.cardGems, gemIndex);
+    //     if (gemIndex == -1) {
+    //         let tempGems = this.state.cardGems.slice();
+    //         if ((tempGems.length + 1) > this._gemAmount[this.state.cardType]) {
+    //             console.log("Removing a gem");
+    //             tempGems.shift();
+    //         }
+    //         var state = {"name": gemName};
+    //         if (this.state.gemText.hasOwnProperty(gemName)) {
+    //             state.text = this.state.gemText[gemName];
+    //         }
+    //         tempGems.push(state);
+    //         this.setState({ "cardGems": tempGems });
+    //     }
+    //     else {
+    //         let tempGems = this.state.cardGems.slice();
+    //         tempGems.splice(gemIndex, 1);
+    //         this.setState({ "cardGems": tempGems });
+    //     }
+    // }
 
     indexOfGem (gemName) {
         for (let i = this.state.cardGems.length-1; i >= 0; i--) {
@@ -112,6 +112,7 @@ export class CardBuilder extends React.Component {
     }
     updateOrNewGem (gemNameOrObject, key, value) {
         let gem;
+        console.log(this.state);
         if (typeof gemNameOrObject == "string") {
             let gemNumber = this.indexOfGem(gemNameOrObject);
             if (gemNumber != -1) {
@@ -131,24 +132,27 @@ export class CardBuilder extends React.Component {
     }
     onGemChange (gemName, gemText, gemSelected) {
         var currGem = this.updateOrNewGem(gemName, "text", gemText);
-        this.updateOrNewGem(currGem, "selected", gemSelected != null ? gemSelected : false);
+        if (gemSelected != null) {
+            this.updateOrNewGem(currGem, "selected", gemSelected);
+        }
         var nId =this.indexOfGem(gemName);
         currGem.gemName = gemName;
+
         var newArr = this.state.cardGems.slice();
-        if (gemSelected !== null && gemSelected && nId !== -1) {
+        if (gemText == null && gemSelected !== null && gemSelected && nId !== -1) {
             newArr.splice(nId,1,currGem);
         }
         else if (gemSelected === false) {
             newArr.splice(nId, 1);
         }
-        else {
+        else if (gemText == null) {
             newArr.push(currGem);
         }
         if (newArr.length > this.maxGems()) {
             newArr.splice(0, newArr.length - this.maxGems());
         }
-        this.setState({ "cardGems": newArr });
         console.log(this.state.cardGems);
+        this.setState({ "cardGems": newArr });
     }
 
     maxGems () {
