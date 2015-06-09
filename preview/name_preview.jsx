@@ -15,7 +15,7 @@ export class NamePreview extends React.Component {
                     "letterSpacing": "-0.01em",
                     "color": RenderUtilities.getColor("cardName"),
                     "fontSize": "121.6px",//"fontSize": "124.55pt",
-                    "textShadow": "4px 3px 0px rgba(0, 0, 0, 1)",
+                    "textShadow": "5px 5px 0px rgba(0, 0, 0, 1)",
                 }}>{this.props.cardName}</span>;
     }
 }

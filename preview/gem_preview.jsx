@@ -32,7 +32,7 @@ export class GemPreview extends React.Component {
                     "backgroundColor": RenderUtilities.getColor(gem.gemName),
                     "borderRadius": "3px",
                     "bottom": "50px",
-                    "textShadow": "0px 0px 11px rgba(0, 0, 0, 1)",
+                    "textShadow": "0px 0px 8.01px rgba(0, 0, 0, 1)",
                     "left": ((198/2) - (55 / 2)) + "px",
                     "textAlign": "center",
                     "letterSpacing": "-0.01em",

@@ -165,7 +165,9 @@ export class CardBuilder extends React.Component {
     save () {
        var renderer = new CardRenderer(this.state);
         return renderer.render().then((canvas) => {
-            $(document.body).prepend(canvas);
+            canvas.toBlob((blob) => {
+                saveAs(blob, "URLiveWiki.com Card "+this.state.cardTitle+".png");
+            });
         });
     }
 
@@ -175,7 +177,7 @@ export class CardBuilder extends React.Component {
             <div className="content-box ">
             <div className="content-box-heading">Card Builder</div>
                 <div className="alert alert-info">
-                Updated to the proper card colours. Still waiting on a few more things to be able to actually save the image. Know how to code and want to help out? Visit our <a href="https://github.com/Unforgotten-Realms-Live-Wiki/CardBuilder">GitHub Page</a>
+                Updated to the proper card colours and now (experimental) saving! If it doesnt work please leave an issue in the discussion page (second tab at the top). Know how to code and want to help out? Visit our <a href="https://github.com/Unforgotten-Realms-Live-Wiki/CardBuilder">GitHub Page</a>
                 </div>
                 <div className="pure-g">
                 <form className="pure-form pure-form-aligned pure-u-11-24">
@@ -207,11 +209,10 @@ export class CardBuilder extends React.Component {
                </form>
                 <div className="pure-u-12-24">
                     <CardPreview ref="cardImage" cardStamina={this.state.cardStamina} cardGems={this.state.cardGems} cardTitle={this.state.cardTitle} cardCost={this.state.cardCost} cardType={this.state.cardType} cardName={this.state.cardName} cardDescription={this.state.cardDescription}></CardPreview>
-                    {(window.location.hash == "#test" ?
-                    <button onClick={this.save.bind(this)}>Test Save Output</button>
-                    : "" )}
-
+                   
                     <br />
+                    <button className="pure-button pure-button-primary" onClick={this.save.bind(this)}>Save Output (Experimental!)</button>
+
                 </div>
 
                 </div>
