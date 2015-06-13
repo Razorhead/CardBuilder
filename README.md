@@ -10,13 +10,4 @@ build script soon. Only just realised its missing.
 
 # TODO
 
-* Canvas Renderer text wrap and justify for card description.
-* Canvas Renderer for all other elements.
-
-Proposed solution would be to just create it in HTML, 
-wrap words in span tags and then use that to render 
-the text on the canvas itself.
-
-Not the most elegant of solutions but I have gone through
-every option from rendering to SVG to outputting to html2canvas 
-to even trying to write my own justify text canvas function. 
+* Match pixel to pixel of official cards.
