@@ -17,7 +17,7 @@ export class StaminaPreview extends React.Component {
                 "textAlign": "center",
                 "fontSize": "73px",
                 "color": RenderUtilities.getColor("stamina"),
-                "textShadow": "4px 2px 0px rgba(0, 0, 0, 1)",
+                "textShadow": "3px 4px 0px rgba(0, 0, 0, 1)",
             }}>{this.props.cardStamina}</div>;
     }
 }

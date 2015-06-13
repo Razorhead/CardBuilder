@@ -1,4 +1,5 @@
 import {RenderUtilities} from "../common/RenderUtilities.js";
+
 export class NameRenderer {
 
     constructor (props) {

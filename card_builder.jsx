@@ -7,29 +7,33 @@ import {NameForm} from './form/name_form.jsx';
 import {StaminaForm} from './form/stamina_form.jsx';
 import {TitleForm} from './form/title_form.jsx';
 import {TypeForm} from './form/type_form.jsx';
+import {DeckBuilder} from './DeckBuilder/deck_builder.jsx';
 
 export class CardBuilder extends React.Component {
     state = {
-        "cardName": "Class name",
-        "cardType": "typeClass",
-        "cardTitle": "A Card Title",
+        "cardName": "Accessory",
+        "cardType": "typeAccessory",
+        "cardTitle": "My First Accessory",
         "cardCost": 0,
         "cardStamina": null,
         "cardGems": [],
-        "cardDescription": "Not to be confused with edible. Summons one really annoying editable large card in the middle of your screen for 2 responsive layout damage. If used alongside a table layout take 4 damage. Once you realise this is using 40 text-shadows to make it so it has a text outline get annoyed at W3C."
+        "cardDescription": "Custom card description"
     };
+
     _card_names = {
         "typeTreasure": "Treasure",
-        "typeItem": "Item"
+        "typeItem": "Item",
+        "typeAccessory": "Accessory"
     };
     titleCards = ["typeClass", "typeRace"];
-    costCards = ["typeTreasure"];
+    costCards = ["typeTreasure", "typeItem"];
     gemCards = ["typeTreasure", "typeClass", "typeItem"];
     _gemAmount = {
         "typeTreasure": 2,
-     "typeClass": 5,
-     "typeItem": 2,
-        "typeRace": 0
+        "typeClass": 5,
+        "typeItem": 2,
+        "typeRace": 0,
+        "typeAccessory": 0
     };
 
     stamCards = ["typeClass"];
@@ -64,6 +68,9 @@ export class CardBuilder extends React.Component {
         }
         if (this.stamCards.indexOf(cType) == -1) {
             s.cardStamina = null;
+        }
+        if (this.costCards.indexOf(cType) == -1) {
+            s.cardCost = 0;
         }
         if (this.state.cardGems.length > this._gemAmount[cType]) {
             var newArr = this.state.cardGems.splice(0,this.state.cardGems.length - this.maxGems());
@@ -180,16 +187,13 @@ export class CardBuilder extends React.Component {
         return <div>
             <div className="content-box ">
             <div className="content-box-heading">Card Builder</div>
-                <div className="alert alert-info">
-                Updated to the proper card colours and now (experimental) saving! If it doesnt work please leave an issue in the discussion page (second tab at the top). Know how to code and want to help out? Visit our <a href="https://github.com/Unforgotten-Realms-Live-Wiki/CardBuilder">GitHub Page</a>
-                </div>
                 <div className="pure-g">
                 <form className="pure-form pure-form-aligned pure-u-11-24">
                 <fieldset>
                     <TypeForm onChange={this.onTypeChange.bind(this)} value={this.state.cardType}></TypeForm>
                     <DescriptionForm onChange={this.onDescriptionChange.bind(this)} value={this.state.cardDescription}></DescriptionForm>
 
-                        <TitleForm onChange={this.onTitleChange.bind(this)} value={this.state.cardTitle}></TitleForm>
+                    <TitleForm onChange={this.onTitleChange.bind(this)} value={this.state.cardTitle}></TitleForm>
 
                     {this.outputIfCardTypeIsIn(
                         <CostForm value={this.state.cardCost} onChange={this.onCostChange.bind(this)}></CostForm>,
@@ -211,11 +215,13 @@ export class CardBuilder extends React.Component {
 
                 </fieldset>
                </form>
+              
                 <div className="pure-u-12-24">
                     <CardPreview ref="cardImage" cardStamina={this.state.cardStamina} cardGems={this.state.cardGems} cardTitle={this.state.cardTitle} cardCost={this.state.cardCost} cardType={this.state.cardType} cardName={this.state.cardName} cardDescription={this.state.cardDescription}></CardPreview>
-                   
+
                     <br />
-                    <button className="pure-button pure-button-primary" onClick={this.save.bind(this)}>Save Output (Experimental!)</button>
+                    <button className="pure-button button-xlarge pure-button-primary" onClick={this.save.bind(this)}>Save as Image</button>
+                    <br />
 
                 </div>
 
