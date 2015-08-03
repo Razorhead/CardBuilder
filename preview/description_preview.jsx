@@ -6,6 +6,14 @@ export class DescriptionPreview extends React.Component {
     }
 
     render () {
+        var cardDesc = [];
+        if (this.props.cardDescription != null) {
+            var newlineSplit = this.props.cardDescription.split("\n");
+
+            for (var i = 0; i < newlineSplit.length; i++) {
+                cardDesc.push(<div >{newlineSplit[i] != "" ? newlineSplit[i] : "\u00a0"}</div>);
+            }
+        }
         return  <div style={{
                     "top": "293px",
                     "position":"absolute",
@@ -19,6 +27,6 @@ export class DescriptionPreview extends React.Component {
                     "fontFamily": "Calisto MT W01 Bold",
                     "color": RenderUtilities.getColor("description"),
                     "textAlign": "justify"
-                }}>{this.props.cardDescription}</div>;
+                }}>{cardDesc}</div>;
     }
 }

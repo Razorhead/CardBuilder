@@ -3,7 +3,8 @@ var baseDir = "/widget_code/react/CardBuilder/resources/";
 export class RenderUtilities {
 
     static IMAGE_SOURCES = {
-        "passive": "/images/e/e7/Passive_gem.png",
+        "passive_v2": "/images/0/04/Passive_Gem.png",
+        "passive": "/images/1/19/Passive_Gem_Old.png",
         "pet": "/images/b/b3/Pet_gem.png",
         "limited": "/images/b/be/Limited_gem.png",
         "ability": "/images/3/31/Ability_gem.png",
@@ -16,7 +17,6 @@ export class RenderUtilities {
         "melee": "/images/d/d9/Melee_gem.png",
         "weapon": "/images/a/ad/Weapon_gem.png",
         "dragon": "/images/c/cc/Dragon_Gem.png",
-        "swirly": "/images/1/15/22_-_G4DD8Rm.png",
 
         "typeClass": baseDir+"class_card.png",
         "typeTreasure": baseDir+"treasure_card.png",
@@ -49,7 +49,7 @@ export class RenderUtilities {
     static IMAGE_ELEMENTS = {};
 
     static getImage (key) {
-        var image = new Image(key);
+        var image = new Image();
 
         return new Promise((resolve, reject) => {
             image.addEventListener("error",function (ev) {
@@ -104,6 +104,7 @@ export class RenderUtilities {
         div.style.zIndex = "10";
         div.style.width = width +"px";
         div.style.height = height + "px";
+        div.style.whiteSpace = "pre-wrap";
         //div.style.visibility = "none";
         div.style.letterSpacing = letterSpacing;
         var letters = text.split("");
