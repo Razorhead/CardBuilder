@@ -4,7 +4,7 @@ export class RenderUtilities {
 
     static IMAGE_SOURCES = {
         "passive_v2": "/images/0/04/Passive_Gem.png",
-        "passive": "/images/1/19/Passive_Gem_Old.png",
+        "passive": "/images/0/04/Passive_Gem.png",
         "pet": "/images/b/b3/Pet_gem.png",
         "limited": "/images/b/be/Limited_gem.png",
         "limitedcombat": "/images/1/15/Limited_Combat_gem.png",
