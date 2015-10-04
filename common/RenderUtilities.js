@@ -7,6 +7,8 @@ export class RenderUtilities {
         "passive": "/images/1/19/Passive_Gem_Old.png",
         "pet": "/images/b/b3/Pet_gem.png",
         "limited": "/images/b/be/Limited_gem.png",
+        "limitedcombat": "/images/1/15/Limited_Combat_gem.png",
+        "limitedround": "/images/b/bd/Limited_Round_gem.png",
         "ability": "/images/3/31/Ability_gem.png",
         "consumable": "/images/4/4c/Consumable_gem.png",
         "buff": "/images/d/d6/Buff_gem.png",

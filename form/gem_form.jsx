@@ -2,7 +2,7 @@ import {GemFormButton} from './gem_form_button.jsx';
 
 export class GemForm extends React.Component {
     gems = {
-        "passive": {"image":"/images/e/e7/Passive_gem.png", "name":"Passive"},
+        "passive": {"image":"/images/0/04/Passive_Gem.png", "name":"Passive"},
         "pet": {"image":"/images/b/b3/Pet_gem.png", "amount": true, "name":"Pets"},
         "limitedcombat": {"image":"/images/1/15/Limited_Combat_gem.png", "name":"Once Per Combat"},
         "limitedround": {"image":"/images/b/bd/Limited_Round_gem.png", "name":"Once Per Round"},
