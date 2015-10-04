@@ -188,8 +188,11 @@ export class CardBuilder extends React.Component {
             <div className="content-box ">
             <div className="content-box-heading">Card Builder</div>
                 <div className="pure-g">
+
+                <div className="pure-u-24-24">
                 <div className="alert alert-info">
                     The card builder is not under active development until we have official assets for it. You can however contribute to it yourself by going to <a href="//github.com/Unforgotten-Realms-Live-Wiki/CardBuilder">the GitHub project page</a>.
+                </div>
                 </div>
                 <form className="pure-form pure-form-aligned pure-u-11-24">
                 <fieldset>
