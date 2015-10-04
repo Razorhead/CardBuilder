@@ -29,7 +29,7 @@ export class CardBuilder extends React.Component {
     costCards = ["typeTreasure", "typeItem"];
     gemCards = ["typeTreasure", "typeClass", "typeItem"];
     _gemAmount = {
-        "typeTreasure": 2,
+        "typeTreasure": 5,
         "typeClass": 5,
         "typeItem": 2,
         "typeRace": 0,
