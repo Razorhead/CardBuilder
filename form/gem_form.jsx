@@ -13,6 +13,7 @@ export class GemForm extends React.Component {
         "spell": {"image":"/images/2/29/Spell_gem.png", "name":"Spell"},
         "armour": {"image":"/images/9/95/Armor_gem.png", "name":"Armour"},
         "range": {"image":"/images/2/29/Range_gem.png", "amount": true, "name":"Range"},
+		"radius": {"image":"/images/1/1b/Radius_Gem.png", "amount": true, "name":"Radius"},
         "melee": {"image":"/images/d/d9/Melee_gem.png", "name":"Melee"},
         "weapon": {"image":"/images/a/ad/Weapon_gem.png", "name":"Weapon"},
         "dragon": {"image":"/images/c/cc/Dragon_Gem.png", "name":"Dragon?"}

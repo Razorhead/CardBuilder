@@ -16,6 +16,7 @@ export class RenderUtilities {
         "spell": "/images/2/29/Spell_gem.png",
         "armour": "/images/9/95/Armor_gem.png",
         "range": "/images/2/29/Range_gem.png",
+		"radius": "/images/1/1b/Radius_Gem.png",
         "melee": "/images/d/d9/Melee_gem.png",
         "weapon": "/images/a/ad/Weapon_gem.png",
         "dragon": "/images/c/cc/Dragon_Gem.png",
